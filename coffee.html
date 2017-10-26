@@ -43,29 +43,49 @@
         <h4>Total: <span id="revenue"><!-- Revenue Message will show up here --></span></h4>
     </div>
 </div>
-
+<script src='https://code.jquery.com/jquery-3.2.1.min.js'></script>
 <script>
 
-    // Set these variables to their DOM elements
+    //The JQuery version
 
-    let coffeeImage = document.querySelector('#coffee-image');
-    coffeeImage.setAttribute('src', 'static/coffee_beans.jpg');
-    //creating variables for the  images we want to put as the 
-    //#coffee-image on the page
     let machineImage = 'static/coffee_machine.jpg';
     let mugImage = 'static/coffee_mug.jpg';
     let beansImage = 'static/coffee_beans.jpg';
 
+    $('#coffee-image').attr('src', beansImage);
 
     function makeCoffee() {
-        coffeeImage.setAttribute('src', machineImage);
+        $('#coffee-image').attr('src', machineImage);
         
         //making drinkCoffee an inline fn 
-        setTimeout(function () {coffeeImage.setAttribute('src', mugImage); }, 1500);
+        setTimeout(function () {$('#coffee-image').attr('src', mugImage); }, 1500);
 
         //makingn finishCoffee an arrow fn
-        setTimeout(() => coffeeImage.setAttribute('src', beansImage), 4000);
+        setTimeout(() => $('#coffee-image').attr('src', beansImage), 4000);
     }
+
+    $('#coffee-image').on('click', makeCoffee);
+    
+
+    // THE JAVASCRIPT VERSION
+
+    // let coffeeImage = document.querySelector('#coffee-image');
+    // coffeeImage.setAttribute('src', 'static/coffee_beans.jpg');
+    //creating variables for the  images we want to put as the 
+    //#coffee-image on the page
+
+//the functions in js
+
+    // function makeCoffee() {
+    //     coffeeImage.setAttribute('src', machineImage);
+        
+    //     //making drinkCoffee an inline fn 
+    //     setTimeout(function () {coffeeImage.setAttribute('src', mugImage); }, 1500);
+
+    //     //makingn finishCoffee an arrow fn
+    //     setTimeout(() => coffeeImage.setAttribute('src', beansImage), 4000);
+    // }
+
 
     // function drinkCoffee() {
 
@@ -77,8 +97,8 @@
     //  coffeeImage.setAttribute('src', beansImage);   
 
     // }
-
-    coffeeImage.addEventListener('click', makeCoffee);
+//calling the comeback function in jscript
+    // coffeeImage.addEventListener('click', makeCoffee);
     
 
 
